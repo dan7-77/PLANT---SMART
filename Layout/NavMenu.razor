@@ -1,0 +1,96 @@
+﻿
+
+
+
+    <div class="flex h-screen overflow-hidden">
+
+        <div class="sidebar bg-green-800 text-white w-64 flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 flex items-center">
+                <div class="bg-white rounded-lg p-2 mr-3">
+                    <!--LOGO-->
+                    <i></i>
+                </div>
+                <h1 class="text-xl font-bold text-white">Plant Smart</h1>
+            </div>
+           
+            
+            <div class="flex-1 overflow-y-auto">
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="/">
+                    <!-- ICONE -->
+                    <span class="fi fi-br-plant-care" aria-hidden="true"></span> Home
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="inicio">
+                    <!-- ICONE -->
+                    <span class="fi fi-br-plant-care" aria-hidden="true"></span> Inicio
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="minhas-plantas">
+                    <!-- ICONE -->
+                    <span class="fi fi-br-plant-care" aria-hidden="true"> </span> Minhas plantas
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="banco-plantas">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Banco de plantas
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="premium">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Premium
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="guia">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Guia de emergência
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="dicas">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Dicas 
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="config">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Configurações
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="equipe">
+                    <!-- ICONE -->
+                    <span class="" aria-hidden="true"></span> Equipe
+                </NavLink>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

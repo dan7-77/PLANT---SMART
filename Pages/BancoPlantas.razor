@@ -1,0 +1,55 @@
+﻿@page "/banco-plantas"
+
+<div id="plant-database" class="content-section">
+    <div class="bg-gradient-to-r from-green-600 to-green-800 rounded-xl p-6 mb-6 text-white welcome">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+                <h1 class="text-2xl font-bold mb-2">Banco de Plantas</h1>
+                <p class="opacity-90">Explore nossa extensa coleção de plantas</p>
+            </div>
+            <div class="mt-4 md:mt-0 relative">
+                <input type="text" placeholder="Pesquisar plantas..." class="px-4 py-2 rounded-lg w-full md:w-64">
+                <i class="fas fa-search absolute right-3 top-3 text-black-500"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Monstera" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="font-bold text-lg mb-2">Monstera deliciosa</h3>
+                <p class="text-gray-600 text-sm mb-4">Planta tropical com folhas grandes e fenestradas. Ideal para interiores com luz indireta.</p>
+                <div class="flex justify-between text-sm">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Fácil cuidado</span>
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Interior</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lírio-da-paz" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="font-bold text-lg mb-2">Lírio-da-paz</h3>
+                <p class="text-gray-600 text-sm mb-4">Planta de interior que purifica o ar. Flores brancas elegantes e folhas verdes brilhantes.</p>
+                <div class="flex justify-between text-sm">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Fácil cuidado</span>
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Interior</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="https://www.google.com/imgres?q=figueira%20lira&imgurl=https%3A%2F%2Fcdn.awsli.com.br%2F1982%2F1982052%2Fproduto%2F140322867%2Fc4504fb0b8.jpg&imgrefurl=https%3A%2F%2Fwww.plantadelivery.com.br%2Ffigueira-lira%3Fsrsltid%3DAfmBOopUYMzMihVQrxKZUhYWSvnyibFMWkZtyrEMYHsNwHKX0rOD_Mjb&docid=BdQnKUXgMuhU9M&tbnid=GqGUYE5LFbrUMM&vet=12ahUKEwjS8O3DzJmOAxUyAbkGHVJCCvYQM3oECBoQAA..i&w=420&h=420&hcb=2&ved=2ahUKEwjS8O3DzJmOAxUyAbkGHVJCCvYQM3oECBoQAA" alt="Figueira-lira" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="font-bold text-lg mb-2">Figueira-lira</h3>
+                <p class="text-gray-600 text-sm mb-4">Planta de folhas grandes em forma de lira. Requer luz brilhante e rega moderada.</p>
+                <div class="flex justify-between text-sm">
+                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Médio cuidado</span>
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Interior</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

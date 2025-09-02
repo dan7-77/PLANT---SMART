@@ -1,0 +1,295 @@
+﻿@page "/"
+
+    <header class="navbar">
+        <div class="navbar-logo">
+            <img src="https://via.placeholder.com/20x20/008000/FFFFFF?text=A" alt="">
+            <span>Plant Smart</span>
+        </div>
+        <nav class="navbar-nav">
+        <NavLink class="nav-link" href="inicio">
+            <!-- ICONE -->
+            <span class="" aria-hidden="true"></span> <a href="#" class="btn btn-primary">Entrar</a>
+        </NavLink>
+            
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Sistema de Monitoramento Agrícola <span class="highlight">Inteligente</span></h1>
+            <p>Monitore suas plantações em tempo real, receba alertas sobre condições críticas e otimize sua produção agrícola com tecnologia avançada de sensores e análise preditiva.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Criar conta gratuita</a>
+
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Recursos Principais</h2>
+            <p class="subtitle">Uma plataforma completa para monitoramento e gestão agrícola moderna</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-seedling icon-green"></i>
+                    <h3>Monitoramento de Solo</h3>
+                    <p>Monitore a umidade e qualidade do solo em tempo real com sensores avançados.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bug icon-green"></i>
+                    <h3>Detecção de Pragas</h3>
+                    <p>Sistema inteligente de detecção e alerta para pragas e doenças nas culturas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line icon-green"></i>
+                    <h3>Análise Preditiva</h3>
+                    <p>Análises baseadas em dados históricos para otimizar a produção agrícola.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-sun-rain icon-green"></i>
+                    <h3>Previsão do Tempo</h3>
+                    <p>Integração com dados meteorológicos para planejamento de irrigação.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-alt icon-green"></i>
+                    <h3>Quem somos</h3>
+                    <p>Um sistema de monitoramento inteligente para acompanhamento de plantas</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bell icon-green"></i>
+                    <h3>Alertas em Tempo Real</h3>
+                    <p>Receba notificações instantâneas sobre condições críticas da plantação.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="call-to-action-section">
+        <h2>Pronto para Revolucionar sua Agricultura?</h2>
+        <p>Junte-se a centenas de produtores que já usam o Plant Smart para maximizar sua produtividade e minimizar riscos.</p>
+
+        <div class="footer-info">
+            <div class="footer-logo">
+                <img src="https://via.placeholder.com/20x20/FFFFFF/000000?text=A" alt="">
+                <span>Plant Smart</span>
+            </div>
+            <p>© 2025 Plant Smart. Tecnologia para agricultura sustentável.</p>
+        </div>
+    </footer>
+
+    <style>
+        
+/* General Styling */
+
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+}
+
+.highlight {
+    color: #032e03; /* Green color for the highlight */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #044104;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #006400;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #008000;
+    border: 1px solid #008000;
+}
+
+.btn-secondary:hover {
+    background-color: #e6ffe6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #008000;
+    font-size: 1.2em;
+}
+
+.navbar-logo img {
+    margin-right: 8px;
+}
+
+.navbar-nav .btn {
+    padding: 8px 20px;
+    font-size: 0.9em;
+}
+
+/*  */
+.hero-section {
+    text-align: center;
+    padding: 80px 15%;
+    background-color: #fff;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons .btn {
+    margin: 0 10px;
+}
+
+/*  */
+.features-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+.features-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.features-section .subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card .icon-green {
+    font-size: 3em;
+    color: #008000;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.feature-card p {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+.call-to-action-section {
+    background-color: #044104; 
+    color: #fff;
+    text-align: center;
+    padding: 60px 5%;
+}
+
+.call-to-action-section h2 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.call-to-action-section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.btn-footer {
+    background-color: #fff;
+    color: #044104;
+    font-weight: 700;
+    padding: 12px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+.footer-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 50px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    margin-right: 8px;
+}
+
+.footer-info p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0;
+}
+
+
+
+
+
+    </style>

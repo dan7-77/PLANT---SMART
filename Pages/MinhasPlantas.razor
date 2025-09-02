@@ -1,0 +1,175 @@
+﻿@page "/minhas-plantas"
+@using PIT.Models
+@inject PIT.Services.PlantService PlantService
+@inject IJSRuntime JS
+
+
+<PageTitle>Minhas Plantas</PageTitle>
+
+<div id="my-plants" class="container mt-4">
+    <!-- Cabeçalho -->
+    <div class="card bg-success text-white mb-4">
+        <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div>
+                <h1 class="h4 mb-2">Minhas Plantas</h1>
+                <p class="mb-0">Gerencie todas as suas plantas em um só lugar</p>
+            </div>
+            <button class="btn btn-light text-success mt-3 mt-md-0"
+                    @onclick="ShowAddForm">
+                Adicionar Planta
+            </button>
+        </div>
+    </div>
+
+    <!-- Formulário -->
+    @if (showForm)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <EditForm Model="editingPlant" OnValidSubmit="SavePlant">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Nome</label>
+                            <InputText @bind-Value="editingPlant.Name" class="form-control" />
+                            <ValidationMessage For="@(() => editingPlant.Name)" />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nome científico</label>
+                            <InputText @bind-Value="editingPlant.ScientificName" class="form-control" />
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Saúde (%)</label>
+                            <InputNumber @bind-Value="editingPlant.Health" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Última rega</label>
+                            <InputDate @bind-Value="editingPlant.LastWatered" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-success me-2">Salvar</button>
+                        <button type="button" class="btn btn-secondary" @onclick="CancelForm">Cancelar</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    }
+
+    <!-- Lista de plantas -->
+    <div class="row">
+        @if (plants is null)
+        {
+            <p>Carregando...</p>
+        }
+        else
+        {
+            @foreach (var p in plants)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@p.Name</h5>
+                            <h6 class="card-subtitle text-muted mb-3">@p.ScientificName</h6>
+
+                            <div class="mb-3">
+                                <label class="form-label small">Saúde</label>
+                                <div class="progress">
+                                    <div class="progress-bar @GetHealthBarColor(p.Health)"
+                                         role="progressbar"
+                                         style="width:@($"{p.Health}%")">
+                                        @p.Health%
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p><strong>Última rega:</strong> @RelativeTime(p.LastWatered)</p>
+                            <p><strong>Próxima rega:</strong> @(p.NextWatering?.ToString("dd/MM/yyyy") ?? "—")</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <button class="btn btn-warning btn-sm" @onclick="() => EditPlant(p)">Editar</button>
+                            <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(p.Id)">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    private List<Plant>? plants;
+    private bool showForm = false;
+    private Plant editingPlant = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        plants = await PlantService.GetAllAsync();
+    }
+
+    void ShowAddForm()
+    {
+        editingPlant = new Plant { LastWatered = DateTime.Now, Health = 100, NextWatering = DateTime.Now.AddDays(3) };
+        showForm = true;
+    }
+
+    void EditPlant(Plant p)
+    {
+        editingPlant = new Plant
+        {
+            Id = p.Id,
+            Name = p.Name,
+            ScientificName = p.ScientificName,
+            Health = p.Health,
+            LastWatered = p.LastWatered,
+            NextWatering = p.NextWatering,
+            ImageUrl = p.ImageUrl
+        };
+        showForm = true;
+    }
+
+    async Task SavePlant()
+    {
+        if (editingPlant.Id == 0)
+            await PlantService.AddAsync(editingPlant);
+        else
+            await PlantService.UpdateAsync(editingPlant);
+
+        plants = await PlantService.GetAllAsync();
+        showForm = false;
+    }
+
+    void CancelForm()
+    {
+        showForm = false;
+    }
+
+    async Task ConfirmDelete(int id)
+    {
+        var ok = await JS.InvokeAsync<bool>("confirm", "Deseja realmente excluir esta planta?");
+        if (ok)
+        {
+            await PlantService.DeleteAsync(id);
+            plants = await PlantService.GetAllAsync();
+        }
+    }
+
+    string GetHealthBarColor(int health)
+    {
+        if (health >= 80) return "bg-success";
+        if (health >= 50) return "bg-warning";
+        return "bg-danger";
+    }
+
+    string RelativeTime(DateTime dt)
+    {
+        var span = DateTime.Now - dt;
+        if (span.TotalDays >= 1) return $"{(int)span.TotalDays} dia(s) atrás";
+        if (span.TotalHours >= 1) return $"{(int)span.TotalHours} hora(s) atrás";
+        if (span.TotalMinutes >= 1) return $"{(int)span.TotalMinutes} min atrás";
+        return "agora";
+    }
+}

@@ -2,6 +2,11 @@
 
 ---
 
+## Como acessar o ptojeto 
+
+Salve o arquivo em alguma pasta sua pessoal ou algo tipo, abra o aplicativo Visual Studio 2022, clique em "Abrir" na parte superior da tela incial do aplicativo, em seguida clique em abrir um arquuvo. Assim vice ira acessar o arquivo do proheto e selrcionar o arquuvo "PIT.sln". 
+
+---
 
 ## Descrição do projeto
 

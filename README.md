@@ -11,6 +11,7 @@ Salve o arquivo em alguma pasta sua pessoal ou algo tipo, abra o aplicativo Visu
 ## Descrição do projeto
 
 O Plant Smart é um sistema de monitoramento inteligente para o acompanhamneto de plantas. O sistema vem acompanhado de um sensor que ira medir a umidade do solo e ira dizer se a planta precisa de mais água ou precisa de algum certo tipo de iluminação. Além disso o sistema tambem vaia presentar um certo tipo de detectação de pragas. 
+
 ---
 
 ## Funcionalidades Principais
